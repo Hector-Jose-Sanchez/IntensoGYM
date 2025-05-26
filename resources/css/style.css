@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+  --base-clr: #11121a;
+  --hover-clr: rgba(128, 0, 128, 0.466); /* púrpura translúcido para hover */
+  --text-clr: #e6e6ef; /* blanco suave */
+  --line-clr: #42434a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  min-height: 100vh;
+  background-color: var(--base-clr);
+  color: var(--text-clr);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ---------------- Sidebar ---------------- */
+
+#sidebar {
+  width: 250px;
+  padding: 1em;
+  background-color: rgba(128, 0, 128, 0.466); /* púrpura translúcido como fondo */
+  border-right: 1px solid var(--line-clr);
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+#sidebar ul li {
+  margin-bottom: 10px;
+}
+
+#sidebar a {
+  color: var(--text-clr);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 0.85em;
+  border-radius: .5em;
+  transition: background-color 0.2s;
+}
+
+#sidebar a:hover {
+  background-color: var(--hover-clr); /* hover púrpura translúcido */
+}
+
+/* ---------------- Sidebar cerrado ---------------- */
+
+#sidebar.close {
+  width: 60px;
+}
+
+#sidebar.close a span {
+  display: none;
+}
+
+#sidebar.close a {
+  justify-content: center;
+}
+
+#sidebar.close #toggle-btn {
+  justify-content: center;
+}
+
+/* ---------------- Íconos ---------------- */
+
+#sidebar svg {
+  flex-shrink: 0;
+  fill: var(--text-clr); /* íconos en blanco suave */
+  width: 24px;
+  height: 24px;
+}
+
+/* ---------------- Toggle Button ---------------- */
+
+#toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  padding: .85em;
+  transition: transform 0.2s ease;
+}
+
+#toggle-btn.rotate svg {
+  transform: rotate(180deg);
+}
+
+/* ---------------- Contenido principal ---------------- */
+
+main {
+  padding: 2em;
+}
+
+.container {
+  background-color: #1a1b25;
+  padding: 2em;
+  border-radius: 1em;
+}
+
+h2 {
+  color: var(--text-clr); /* blanco suave */
+}
