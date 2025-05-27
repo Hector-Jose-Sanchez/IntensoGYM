@@ -1,24 +1,23 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/tienda', function () {
     return view('tienda');
+})->name('tienda');
+
+// Ruta protegida para usuarios autenticados
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/inicio', function () {
+        return view('home');
+    })->name('dashboard');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
+// Rutas de autenticación (login, register, logout, etc.)
 require __DIR__.'/auth.php';
+
