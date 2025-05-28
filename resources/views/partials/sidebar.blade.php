@@ -1,50 +1,66 @@
-<nav id="sidebar">
-  <ul>
-    <li>
-      <button id="toggle-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="#e8eaed">
-          <path d="M10.5 17.3 9.45 16.25 13.7 12 9.45 7.75 10.5 6.7l5.3 5.3Z"/>
+<nav id="sidebar" class="close">
+    <!-- Botón para alternar el menú -->
+    <button id="toggle-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+             stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 19l-7-7 7-7" />
         </svg>
-      </button>
-    </li>
-    <li>
-      <a href="{{ url('/') }}">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="#e8eaed">
-          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-        </svg>
-        <span>Inicio</span>
-      </a>
-    </li>
-    <li>
-      <a href="{{ url('/tienda') }}">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="#e8eaed">
-          <path d="M16 6V4a4 4 0 00-8 0v2H4v14h16V6h-4zM10 4a2 2 0 114 0v2h-4V4z"/>
-        </svg>
-        <span>Tienda</span>
-      </a>
-    </li>
+    </button>
 
-    <!-- Perfil -->
-    <li class="profile-section">
-      <button id="profile-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="#e8eaed">
-          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-        </svg>
-        <span>Perfil</span>
-      </button>
+    <!-- Enlaces del menú -->
+    <ul>
+        <li>
+            <a href="{{ route('home') }}">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M3 9.75L12 4l9 5.75v9.25a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.75z" />
+                </svg>
+                <span>Inicio</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('tienda') }}">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M3 3h18l-1.5 9H4.5L3 3zM4.5 21a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm13.5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                </svg>
+                <span>Tienda</span>
+            </a>
+        </li>
+    </ul>
 
-      <div id="profile-menu">
-        @auth
-          <div>Hola, {{ Auth::user()->name }}</div>
-          <form method="POST" action="{{ route('logout') }}">
+    <!-- Botón perfil (siempre visible) -->
+    <div class="profile-section">
+        <button id="profile-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor" width="24" height="24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M5.121 17.804A13.937 13.937 0 0 1 12 16c2.5 0 4.847.655 6.879 1.804M15 11a3 3 0 1 0-6 0 3 3 0 0 0 6 0z" />
+            </svg>
+            <span>
+                @auth
+                    {{ Auth::user()->name }}
+                @else
+                    Perfil
+                @endauth
+            </span>
+        </button>
+    </div>
+</nav>
+
+<!-- Menú de perfil (fuera del sidebar, alineado al botón) -->
+<div id="profile-menu" class="profile-menu-outside">
+    @auth
+        <form method="POST" action="{{ route('logout') }}">
             @csrf
             <button type="submit">Cerrar sesión</button>
-          </form>
-        @else
-          <a href="{{ route('login') }}">Iniciar sesión</a>
-          <a href="{{ route('register') }}">Crear cuenta</a>
-        @endauth
-      </div>
-    </li>
-  </ul>
-</nav>
+        </form>
+    @else
+        <a href="{{ route('login') }}">Iniciar sesión</a>
+        <a href="{{ route('register') }}">Crear cuenta</a>
+    @endauth
+</div>
+

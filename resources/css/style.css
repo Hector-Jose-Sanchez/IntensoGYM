@@ -24,8 +24,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ---------------- Sidebar ---------------- */
-
+/* Sidebar */
 #sidebar {
   width: 250px;
   padding: 1em;
@@ -34,6 +33,7 @@ body {
   transition: width 0.3s ease;
   overflow: hidden;
   position: relative;
+  height: 100vh;
 }
 
 #sidebar ul {
@@ -45,23 +45,37 @@ body {
   margin-bottom: 10px;
 }
 
-#sidebar a {
+#sidebar a,
+#sidebar button {
   color: var(--text-clr);
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 1em;
   padding: 0.85em;
-  border-radius: .5em;
+  border-radius: 0.5em;
   transition: background-color 0.2s;
+  background: none;
+  border: none;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: left;
 }
 
-#sidebar a:hover {
+#sidebar a:hover,
+#sidebar button:hover {
   background-color: var(--hover-clr);
 }
 
-/* ---------------- Sidebar cerrado ---------------- */
+#sidebar svg {
+  flex-shrink: 0;
+  fill: var(--text-clr);
+  width: 24px;
+  height: 24px;
+}
 
+/* Sidebar cerrado */
 #sidebar.close {
   width: 60px;
 }
@@ -77,22 +91,11 @@ body {
   justify-content: center;
 }
 
-#sidebar.close #profile-menu {
-  left: 60px;
-  transform: translateX(-50%);
+#sidebar.close .profile-section {
+  justify-content: center;
 }
 
-/* ---------------- Íconos ---------------- */
-
-#sidebar svg {
-  flex-shrink: 0;
-  fill: var(--text-clr);
-  width: 24px;
-  height: 24px;
-}
-
-/* ---------------- Toggle Button ---------------- */
-
+/* Toggle button */
 #toggle-btn {
   background: none;
   border: none;
@@ -100,7 +103,7 @@ body {
   margin-left: auto;
   display: flex;
   align-items: center;
-  padding: .85em;
+  padding: 0.85em;
   transition: transform 0.2s ease;
 }
 
@@ -108,8 +111,7 @@ body {
   transform: rotate(180deg);
 }
 
-/* ---------------- Contenido principal ---------------- */
-
+/* Main content */
 main {
   padding: 2em;
 }
@@ -124,15 +126,22 @@ h2 {
   color: var(--text-clr);
 }
 
-/* ---------------- Sección Perfil ---------------- */
-
+/* Profile section */
 .profile-section {
   position: absolute;
   bottom: 20px;
-  width: 100%;
-  text-align: center;
+  left: 1em;
+  right: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
+#sidebar.close .profile-section {
+  justify-content: center;
+}
+
+/* Profile button */
 #profile-btn {
   background: none;
   border: none;
@@ -140,39 +149,47 @@ h2 {
   color: var(--text-clr);
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 0.5em;
-  width: 100%;
   padding: 0.85em;
-  border-radius: .5em;
+  border-radius: 0.5em;
   transition: background-color 0.2s;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+#sidebar.close #profile-btn {
+  justify-content: center;
 }
 
 #profile-btn:hover {
   background-color: var(--hover-clr);
 }
 
+/* Profile menu */
 #profile-menu {
   display: none;
+  position: absolute;
+  bottom: 70px;
+  left: 250px;
   background-color: var(--menu-bg);
-  padding: 10px;
+  padding: 15px;
   border-radius: 8px;
-  margin-top: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  min-width: 200px;
+  z-index: 999;
+  color: var(--text-clr);
   transition: all 0.2s ease;
-  max-width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 14px;
 }
 
+/* Ajustar cuando sidebar está cerrado */
+#sidebar.close ~ #profile-menu {
+  left: 60px;
+}
+
+/* Mostrar menú */
 #profile-menu.show {
   display: block;
-}
-
-#profile-menu div {
-  margin-bottom: 10px;
-  font-size: 14px;
-  color: var(--text-clr);
 }
 
 #profile-menu a,
@@ -181,13 +198,13 @@ h2 {
   text-decoration: none;
   display: block;
   margin: 5px 0;
-  font-size: 14px;
   background: none;
   border: none;
   cursor: pointer;
   text-align: left;
   padding: 0;
   width: 100%;
+  font-size: 14px;
 }
 
 #profile-menu a:hover,
