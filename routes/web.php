@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\IsAdmin;
 
 Route::get('/', function () {
     return view('home');
@@ -11,9 +12,11 @@ Route::get('/tienda', function () {
     return view('tienda');
 })->name('tienda');
 
-Route::get('/promociones', function () {
-    return view('promotion');
-})->name('promociones');
+Route::middleware(['auth', IsAdmin::class])->group(function () {
+    Route::get('/promociones', function () {
+        return view('promotion');
+    })->name('promociones');
+});
 
 // Ruta protegida para usuarios autenticados
 Route::middleware(['auth', 'verified'])->group(function () {
