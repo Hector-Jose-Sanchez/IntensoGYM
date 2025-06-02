@@ -1,11 +1,10 @@
-<div class="promo-carousel">
+<div class="promo-carousel" id="promo-carousel">
     <div class="carousel-container">
-        @php
-            $imagenes = File::glob(public_path('imagen/promociones/*.{jpg,png,jpeg}'), GLOB_BRACE);
-        @endphp
-
-        @foreach($imagenes as $index => $imagen)
-            <img class="carousel-slide {{ $index === 0 ? 'active' : '' }}" src="{{ asset('imagen/promociones/' . basename($imagen)) }}" alt="Promoción {{ $index + 1 }}">
+        @foreach($promotions->take(5) as $promotion)
+            <div class="carousel-slide">
+                <img src="{{ asset('storage/' . $promotion->image) }}" alt="Promo">
+                <div class="promo-text">{{ $promotion->text }}</div>
+            </div>
         @endforeach
 
         <button class="carousel-btn prev">&#10094;</button>

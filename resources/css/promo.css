@@ -1,9 +1,9 @@
 .promo-carousel {
     position: relative;
-    max-width: 100%; /* achica el ancho */
+    max-width: 100%;
     margin: 20px auto;
     overflow: hidden;
-    background: linear-gradient(to bottom, #0453ad, #ffffff); /* azul oscuro a blanco */
+    background: linear-gradient(to bottom, #002447, #ffffff);
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
@@ -11,39 +11,49 @@
 .carousel-container {
     position: relative;
     width: 100%;
-    height: 300px; /* altura fija del carrusel */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
+    height: 300px;
 }
 
 .carousel-slide {
     display: none;
-    height: 280px; /* hace que la imagen se vea más grande dentro del contenedor */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.carousel-slide img {
+    height: 100%;
     width: auto;
-    object-fit: contain;
     border-radius: 10px;
-    transition: transform 0.5s;
+    object-fit: cover;
+}
+
+.carousel-slide .promo-text {
+    color: white;
+    font-size: 1.2rem;
+    max-width: 60%;
 }
 
 .carousel-slide.active {
-    display: block;
+    display: flex !important;
     animation: fade 0.5s ease-in-out;
 }
 
 .carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #ecd447; /* Amarillo para destacar, como los ojos del lobo */
-  font-size: 2rem;
-  padding: 0;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 10;
-  line-height: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ecd447;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    display: none;
 }
 
 .carousel-btn.prev {
@@ -54,7 +64,11 @@
     right: 10px;
 }
 
+.promo-carousel:hover .carousel-btn {
+    display: block;
+}
+
 @keyframes fade {
-    from { opacity: 0.6; }
+    from { opacity: 0.5; }
     to { opacity: 1; }
 }
