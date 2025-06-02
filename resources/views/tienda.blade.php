@@ -3,7 +3,9 @@
 @section('title', 'Tienda')
 
 @section('content')
-<div class="container">
-  <h2>Hola, esta es la tienda</h2>
-</div>
+<main>
+  <div class="container">
+    <h2>Hola, esta es la tienda</h2>
+  </div>
+</main>
 @endsection

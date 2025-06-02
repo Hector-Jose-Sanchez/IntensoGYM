@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 :root {
-  --base-clr: #11121a;
-  --hover-clr: #5a007a;
-  --text-clr: #ffffff;
-  --form-bg: #1e1e2f;
-  --accent: #8e44ad;
-  --error-clr: #ff6b6b;
+  --base-clr: #0b0d14;         /* Fondo general (casi negro azulado) */
+  --hover-clr: #003b73cc;      /* Azul profundo semi-transparente */
+  --text-clr: #ffffff;         /* Blanco puro para contraste */
+  --line-clr: #1f2a36;         /* Azul grisáceo para líneas */
+  --menu-bg: #091d34;          /* Fondo menú (azul muy oscuro) */
+  --form-bg: #0f1a28;          /* Fondo del formulario */
+  --accent: #1565c0;           /* Azul medio vibrante */
+  --accent-hover: #0d47a1;     /* Azul más oscuro al pasar el mouse */
+  --error-clr: #ff6b6b;        /* Rojo claro para errores */
 }
 
 body {
@@ -57,7 +60,7 @@ input[type="text"] {
   margin-bottom: 1rem;
   border: none;
   border-radius: 0.5rem;
-  background-color: #2c2c3a;
+  background-color: var(--line-clr); /* azul grisáceo */
   color: var(--text-clr);
 }
 
@@ -88,7 +91,7 @@ button,
 
 button:hover,
 .auth-button:hover {
-  background-color: #732d91;
+  background-color: var(--accent-hover);
 }
 
 .auth-footer {

@@ -7,7 +7,9 @@ export default defineConfig({
             input: [
                 'resources/css/style.css',        // Tu CSS principal (inicio, tienda, menú)
                 'resources/css/auth.css',         // Nuevo CSS para login, register, forgot-password
-                'resources/js/app.js'             // Archivo JavaScript principal
+                'resources/js/app.js',            // Archivo JavaScript principal
+                'resources/css/promo.css',        //CSS de vista de promociones 
+                'resources/js/promo.js'           //Java para promociones 
             ],
             refresh: true,
         }),

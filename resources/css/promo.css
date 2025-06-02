@@ -1,0 +1,60 @@
+.promo-carousel {
+    position: relative;
+    max-width: 100%; /* achica el ancho */
+    margin: 20px auto;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #0453ad, #ffffff); /* azul oscuro a blanco */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 300px; /* altura fija del carrusel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.carousel-slide {
+    display: none;
+    height: 280px; /* hace que la imagen se vea más grande dentro del contenedor */
+    width: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    transition: transform 0.5s;
+}
+
+.carousel-slide.active {
+    display: block;
+    animation: fade 0.5s ease-in-out;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ecd447; /* Amarillo para destacar, como los ojos del lobo */
+  font-size: 2rem;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  line-height: 1;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+@keyframes fade {
+    from { opacity: 0.6; }
+    to { opacity: 1; }
+}
