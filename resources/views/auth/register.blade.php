@@ -1,7 +1,6 @@
 <x-guest-layout>
     <div class="auth-container">
-        <h2>Crear cuenta</h2>
-
+ <x-application-logo class="auth-logo" />
         <form method="POST" action="{{ route('register') }}">
             @csrf
 

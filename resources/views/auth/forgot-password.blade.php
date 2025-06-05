@@ -1,10 +1,10 @@
 <x-guest-layout>
     <div class="auth-container">
-        <h2>Recuperar contraseña</h2>
+        <x-application-logo class="auth-logo" />
 
-        <div class="mb-4 text-sm text-gray-300">
+        <label>
             Ingresá tu email y te enviaremos un enlace para restablecerla.
-        </div>
+        <label>
 
         <x-auth-session-status :status="session('status')" />
 

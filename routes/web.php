@@ -13,7 +13,7 @@ Route::get('/tienda', function () {
 })->name('tienda');
 
 // Ruta solo para administradores (formulario para subir promoción)
-Route::middleware(['auth', IsAdmin::class])->group(function () {
+    Route::middleware(['auth', IsAdmin::class])->group(function () {
     Route::get('/promotions', [PromotionController::class, 'create'])->name('promotions');
     Route::post('/promotions', [PromotionController::class, 'store'])->name('promotions.store');
 });

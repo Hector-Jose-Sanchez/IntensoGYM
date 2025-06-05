@@ -1,0 +1,128 @@
+.promo-wrapper {
+    padding: 2rem;
+    background-color: #0e0e2c;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.preview-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #9aa4ff;
+}
+
+.preview-box {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    border: 2px solid #5939ff;
+    border-radius: 10px;
+    background: #1a1a3d;
+    margin-bottom: 2rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.preview-img {
+    max-width: 180px;
+    height: auto;
+    border-radius: 8px;
+    background: #101030;
+    padding: 10px;
+}
+
+.preview-text {
+    font-size: 1.2rem;
+    max-width: 400px;
+    color: #fff;
+    text-align: left;
+}
+
+.promo-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+    background: #14142f;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.drag-drop-area {
+    flex: 1 1 300px;
+    border: 2px dashed #ffffff40;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    background: #1a1a3d;
+}
+
+.drag-drop-area:hover {
+    border-color: #9aa4ff;
+}
+
+#fileLabel {
+    display: block;
+    color: #ccc;
+    font-size: 1rem;
+}
+
+.text-area {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.text-area label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.text-area textarea {
+    resize: vertical;
+    min-height: 120px;
+    border-radius: 8px;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #2a2a4f;
+    color: #fff;
+}
+
+.submit-btn {
+    margin-top: 2rem;
+    width: 100%;
+    padding: 12px;
+    background-color: #3a49f0;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #2935c6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .promo-form {
+        flex-direction: column;
+    }
+
+    .preview-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .preview-img {
+        max-width: 100%;
+    }
+
+    .preview-text {
+        max-width: 100%;
+    }
+}

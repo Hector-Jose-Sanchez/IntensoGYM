@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div class="auth-container">
-        <h2>Iniciar sesión</h2>
+       <x-application-logo class="auth-logo" />
 
         <x-auth-session-status :status="session('status')" />
 

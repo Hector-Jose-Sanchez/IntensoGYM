@@ -14,14 +14,23 @@
   box-sizing: border-box;
 }
 
-body {
+  body {
   display: grid;
   grid-template-columns: auto 1fr;
   min-height: 100vh;
-  background-color: var(--base-clr);
-  color: var(--text-clr);
+  background-image: url('https://www.shutterstock.com/image-photo/fitness-gym-equipment-on-blue-600nw-1037232568.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
+  /* Mejora visual */
+  image-rendering: auto;
+  image-rendering: smooth;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -webkit-transform: translateZ(0); /* fuerza renderizado en GPU para suavizar */
 }
 
 /* Sidebar */
@@ -111,11 +120,6 @@ body {
 
 #toggle-btn.rotate svg {
   transform: rotate(180deg);
-}
-
-/* Main content */
-main {
-  padding: 2em;
 }
 
 .container {
@@ -215,4 +219,76 @@ h2 {
 #profile-menu a:hover,
 #profile-menu form button:hover {
   text-decoration: underline;
+}
+.layout-with-header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Encabezado del logo */
+.intenso-header {
+  width: 100%;
+  height: 70px;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* ⬅️ Esto centra horizontalmente */
+  background-color: rgb(255, 255, 255);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: margin-left 0.3s ease;
+  z-index: 999;
+  position: sticky;
+  top: 0;
+}
+.intenso-header {
+  width: 100%;
+  height: 70px;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* ⬅️ Esto centra horizontalmente */
+  background-color: rgb(255, 255, 255);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: margin-left 0.3s ease;
+  z-index: 999;
+  position: sticky;
+  top: 0;
+}
+
+/* Ajuste de posición al contraer menú */
+#sidebar ~ .layout-with-header .intenso-header {
+  margin-left: 250px;
+}
+
+#sidebar.close ~ .layout-with-header .intenso-header {
+  margin-left: 60px;
+}
+
+/* Contenido del logo */
+.intenso-logo-container {
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #181bda;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.logo-rayo {
+  height: 70px;
+  width: auto;
+}
+
+.logo-text {
+  line-height: 1.1;
+}
+
+.logo-text .bold {
+  font-weight: 700;
 }
