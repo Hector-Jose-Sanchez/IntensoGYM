@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 :root {
-  --base-clr: #0b0d14;         /* Fondo general (casi negro azulado) */
-  --hover-clr: #003b73cc;      /* Azul profundo semi-transparente */
-  --text-clr: #ffffff;         /* Blanco puro para contraste */
-  --line-clr: #1f2a36;         /* Azul grisáceo para líneas */
-  --menu-bg: #091d34;          /* Fondo menú (azul muy oscuro) */
+  --base-clr: #0b0d14;
+  --hover-clr: #003b73cc;
+  --text-clr: #ffffff;
+  --line-clr: #1f2a36;
+  --menu-bg: #091d34;
 }
 
 * {
@@ -14,7 +14,7 @@
   box-sizing: border-box;
 }
 
-  body {
+body {
   display: grid;
   grid-template-columns: auto 1fr;
   min-height: 100vh;
@@ -25,12 +25,11 @@
   color: #fff;
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
-  /* Mejora visual */
   image-rendering: auto;
   image-rendering: smooth;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-  -webkit-transform: translateZ(0); /* fuerza renderizado en GPU para suavizar */
+  -webkit-transform: translateZ(0);
 }
 
 /* Sidebar */
@@ -38,7 +37,6 @@
   width: 250px;
   padding: 1em;
   background-color: var(--hover-clr);
-  border-right: 1px solid var(--line-clr);
   transition: width 0.3s ease;
   overflow: hidden;
   position: sticky;
@@ -86,7 +84,6 @@
   height: 24px;
 }
 
-/* Sidebar cerrado */
 #sidebar.close {
   width: 60px;
 }
@@ -123,7 +120,7 @@
 }
 
 .container {
-  background-color: #0e1a2a; /* Más oscuro para combinar con el fondo del lobo */
+  background-color: #0e1a2a;
   padding: 2em;
   border-radius: 1em;
 }
@@ -191,12 +188,10 @@ h2 {
   font-size: 14px;
 }
 
-/* Ajustar cuando sidebar está cerrado */
 #sidebar.close ~ #profile-menu {
   left: 60px;
 }
 
-/* Mostrar menú */
 #profile-menu.show {
   display: block;
 }
@@ -220,47 +215,29 @@ h2 {
 #profile-menu form button:hover {
   text-decoration: underline;
 }
+
 .layout-with-header {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-/* Encabezado del logo */
 .intenso-header {
+  position: fixed;
+  position: sticky;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 70px;
+  height: 60px;
   padding: 0 1rem;
   display: flex;
   align-items: center;
-  justify-content: center; /* ⬅️ Esto centra horizontalmente */
-  background-color: rgb(255, 255, 255);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  transition: margin-left 0.3s ease;
-  z-index: 999;
-  position: sticky;
-  top: 0;
-}
-.intenso-header {
-  width: 100%;
-  height: 70px;
-  padding: 0 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center; /* ⬅️ Esto centra horizontalmente */
-  background-color: rgb(255, 255, 255);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  transition: margin-left 0.3s ease;
-  z-index: 999;
-  position: sticky;
-  top: 0;
+  justify-content: center;
+  background-color:#ffffffc7;
+  z-index: 9999;
 }
 
-/* Ajuste de posición al contraer menú */
+/* Ajuste de margen cuando se cierra el sidebar */
 #sidebar ~ .layout-with-header .intenso-header {
   margin-left: 250px;
 }
@@ -269,13 +246,13 @@ h2 {
   margin-left: 60px;
 }
 
-/* Contenido del logo */
+/* Logo */
 .intenso-logo-container {
   display: flex;
   align-items: center;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  color: #181bda;
+  color:var(--base-clr);
   font-size: 1.5rem;
   text-transform: uppercase;
 }
@@ -291,4 +268,37 @@ h2 {
 
 .logo-text .bold {
   font-weight: 700;
+}
+.contenedor-personalizado {
+  background-color: rgba(24, 5, 5, 0.822);
+  border: 2px solid #f5e348c5;
+  padding: 16px;
+  border-radius: 15px;
+  width: 600px; /* más ancho para permitir el layout en horizontal */
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.imagen-contenedor {
+  width: 45%; /* toma casi la mitad del contenedor */
+  border-radius: 12px;
+  border: 3px solid #bdbb3a;
+  object-fit: cover;
+}
+
+.texto-contenedor {
+  font-size: 20px;       /* más grande */
+  font-weight: 600;      /* más grueso */
+  color: #fffefe;
+  margin: 0;
+                
+}
+
+.contenedor-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
