@@ -1,10 +1,11 @@
 @extends('layouts.app') {{-- Asegúrate de tener una plantilla base --}}
+<link rel="stylesheet" href="{{ Vite::asset('resources/css/subpro.css') }}">
+<script type="module" src="{{ Vite::asset('resources/js/subpro.js') }}"></script>
 @section('content')
 <main>
  <x-intensogym />
    <div class="web" style="padding: 2em;">
-<link rel="stylesheet" href="{{ Vite::asset('resources/css/subpro.css') }}">
-<script type="module" src="{{ Vite::asset('resources/js/subpro.js') }}"></script>
+
 
 <div class="promo-wrapper">
 
@@ -13,7 +14,7 @@
         <h3>Vista previa en tiempo real</h3>
         <div class="preview-box">
             <img id="preview-image"  alt="Vista previa de imagen" class="preview-img" />
-            <p id="preview-text" class="preview-text">Aquí aparecerá la descripción...</p>
+            <a class="vista"><p id="preview-text" class="preview-text">Aquí aparecerá la descripción...</p></a>
         </div>
     </div>
 
