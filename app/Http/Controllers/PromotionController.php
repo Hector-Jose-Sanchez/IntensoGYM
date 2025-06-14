@@ -32,7 +32,7 @@ class PromotionController extends Controller
 
         Promotion::create([
             'image' => $path,
-            'text' => $request->text, // Corrección aquí: 'text' en lugar de 'description'
+            'text' => $request->text, 
         ]);
 
         return redirect()->route('home')->with('success', 'Promoción creada con éxito.');

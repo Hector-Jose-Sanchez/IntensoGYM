@@ -3,7 +3,7 @@
         @foreach($promotions->take(5) as $promotion)
             <div class="carousel-slide">
                 <img src="{{ asset('storage/' . $promotion->image) }}" alt="Promo">
-                <div class="promo-text">{{ $promotion->text }}</div>
+                <div class="promo-text">{!! $promotion->text !!}</div>
             </div>
         @endforeach
 
