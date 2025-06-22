@@ -10,7 +10,7 @@ export default defineConfig({
                 'resources/js/app.js',            // Archivo JavaScript principal
                 'resources/css/promo.css',        //CSS de vista de promociones 
                 'resources/js/promo.js',          //Java para promociones 
-                'resources/js/supro.js',          //Java para subir promos                                               
+                'resources/js/subpro.js',          //Java para subir promos                                               
                 'resources/css/subpro.css'        //Estilo de promotion                          
             ],
             refresh: true,
